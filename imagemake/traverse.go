@@ -1,6 +1,8 @@
 package imagemake
 
 import (
+	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 )
@@ -15,5 +17,16 @@ func AddToTree(path string, f os.FileInfo, err error) error {
 
 // BuildTree calls AddToTree on each fs object
 func BuildTree() error {
-	return filepath.Walk("/", AddToTree)
+	err := filepath.Walk("./", AddToTree)
+	if err != nil {
+		return err
+	}
+
+	for _, i := range root.Entries {
+		fmt.Println(*i)
+	}
+
+	b, _ := json.MarshalIndent(&root.Entries, "", "    ")
+	fmt.Println(string(b))
+	return nil
 }

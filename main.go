@@ -1,6 +1,6 @@
 package main
 
-import "github.com/grantseltzer/Cbbat/imagemake"
+import "github.com/grantseltzer/fs-snapshot/imagemake"
 
 func main() {
 	imagemake.BuildTree()

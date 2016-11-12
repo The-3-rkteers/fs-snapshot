@@ -17,9 +17,15 @@ type fileInfo struct {
 
 func insert(root *directory, f os.FileInfo) error {
 	if f.IsDir() {
-		// Create directory struct, Add to subTrees
+		// Create directory struct
+		var newDir = new(directory)
+
+		// Traverse to where dir should go
+		// Insert into subtrees slice
 	} else {
-		// Create fileInfo struct, Add to entries
+		// Create fileInfo struct
+		// Traverse to where entry should go
+		// Insert into entries slice
 	}
 	return nil
 }

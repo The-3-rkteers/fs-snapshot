@@ -1,19 +1,19 @@
 package imagemake
 
 import (
-	"fmt"
 	"os"
 	"path/filepath"
 )
 
 var root directory
 
-func addToTree(path string, f os.FileInfo, err error) error {
+// AddToTree is called on each fs object to add to the directory tree
+func AddToTree(path string, f os.FileInfo, err error) error {
 	insert(&root, f)
 	return nil
 }
 
-func buildTree() {
-	err := filepath.Walk("/", addToTree)
-	fmt.Printf("filepath.Walk() returned %v\n", err)
+// BuildTree calls AddToTree on each fs object
+func BuildTree() error {
+	return filepath.Walk("/", AddToTree)
 }

@@ -9,7 +9,7 @@ var root directory
 
 // AddToTree is called on each fs object to add to the directory tree
 func AddToTree(path string, f os.FileInfo, err error) error {
-	insert(&root, f)
+	insert(&root, path, f)
 	return nil
 }
 

@@ -1,31 +1,51 @@
 package imagemake
 
-import "os"
+import (
+	"os"
+	"strings"
+)
 
 type directory struct {
-	directoryName string
-	entries       []*fileInfo
-	subTrees      []*directory
+	directoryPath  string
+	entries        []*fileInfo
+	subDirectories []*directory
 }
 
 type fileInfo struct {
 	fullPath       string
-	permissionMode int
+	permissionMode os.FileMode
 	lastAccessTime int
 	contentChanged bool
 }
 
-func insert(root *directory, f os.FileInfo) error {
-	if f.IsDir() {
-		// Create directory struct
-		var newDir = new(directory)
+func insert(root *directory, fullPath string, f os.FileInfo) error {
 
-		// Traverse to where dir should go
-		// Insert into subtrees slice
+	splitPath := strings.Split(fullPath, "/")
+
+	// If we're in the correct directory
+	if root.directoryPath == splitPath[len(splitPath)-2] {
+		if f.IsDir() {
+			var newDir = new(directory)
+			newDir.directoryPath = f.Name()
+			root.subDirectories = append(root.subDirectories, newDir)
+		} else {
+			var newEntry = new(fileInfo)
+			newEntry.fullPath = fullPath
+			newEntry.contentChanged = false
+			newEntry.permissionMode = f.Mode()
+			newEntry.lastAccessTime = 0
+			root.entries = append(root.entries, newEntry)
+		}
 	} else {
-		// Create fileInfo struct
-		// Traverse to where entry should go
-		// Insert into entries slice
+		// Step to the correct directory, recursively call insert
+		for _, subDir := range root.subDirectories {
+			if subDir.directoryPath == splitPath[1] {
+				err := insert(subDir, strings.Join(splitPath[1:], ""), f)
+				if err != nil {
+					return err
+				}
+			}
+		}
 	}
 	return nil
 }

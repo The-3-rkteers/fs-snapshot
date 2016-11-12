@@ -1,0 +1,81 @@
+[
+    {
+        "FullPath": ".git/COMMIT_EDITMSG",
+        "PermissionNumber": 420,
+        "LastAccessTime": 0,
+        "ContentChanged": false
+    },
+    {
+        "FullPath": ".git/FETCH_HEAD",
+        "PermissionNumber": 420,
+        "LastAccessTime": 0,
+        "ContentChanged": false
+    },
+    {
+        "FullPath": ".git/HEAD",
+        "PermissionNumber": 420,
+        "LastAccessTime": 0,
+        "ContentChanged": false
+    },
+    {
+        "FullPath": ".git/config",
+        "PermissionNumber": 420,
+        "LastAccessTime": 0,
+        "ContentChanged": false
+    },
+    {
+        "FullPath": ".git/description",
+        "PermissionNumber": 420,
+        "LastAccessTime": 0,
+        "ContentChanged": false
+    },
+    {
+        "FullPath": ".git/index",
+        "PermissionNumber": 420,
+        "LastAccessTime": 0,
+        "ContentChanged": false
+    },
+    {
+        "FullPath": ".git/packed-refs",
+        "PermissionNumber": 420,
+        "LastAccessTime": 0,
+        "ContentChanged": false
+    },
+    {
+        "FullPath": ".gitignore",
+        "PermissionNumber": 420,
+        "LastAccessTime": 0,
+        "ContentChanged": false
+    },
+    {
+        "FullPath": "LICENSE",
+        "PermissionNumber": 420,
+        "LastAccessTime": 0,
+        "ContentChanged": false
+    },
+    {
+        "FullPath": "README.md",
+        "PermissionNumber": 420,
+        "LastAccessTime": 0,
+        "ContentChanged": false
+    },
+    {
+        "FullPath": "imagemake/compare_structs.go",
+        "PermissionNumber": 420,
+        "LastAccessTime": 0,
+        "ContentChanged": false
+    },
+    {
+        "FullPath": "imagemake/traverse.go",
+        "PermissionNumber": 420,
+        "LastAccessTime": 0,
+        "ContentChanged": false
+    },
+    {
+        "FullPath": "main.go",
+        "PermissionNumber": 420,
+        "LastAccessTime": 0,
+        "ContentChanged": false
+    }
+]
+

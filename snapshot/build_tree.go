@@ -7,16 +7,14 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/The-3-rkteers/fs-snapshot/dirtree"
+	"github.com/grantseltzer/fs-snapshot/dirtree"
 )
 
 var root dirtree.Directory
 
 // AddToTree is called on each fs object to add to the directory tree
 func AddToTree(path string, f os.FileInfo, err error) error {
-	fmt.Print(f.Name(), f.ModTime())
-	fmt.Printf("%T\n", f.ModTime())
-	if !strings.HasPrefix("/proc", path) {
+	if !strings.HasPrefix("/proc", path) && !strings.HasPrefix("/var/lib/oci-storage", path) {
 		insert(&root, path, f)
 	}
 	return nil

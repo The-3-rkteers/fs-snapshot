@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/The-3-rkteers/fs-snapshot/dirtree"
+	"github.com/grantseltzer/fs-snapshot/dirtree"
 )
 
 func basisDate() time.Time {

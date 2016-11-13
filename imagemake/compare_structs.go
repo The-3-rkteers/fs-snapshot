@@ -3,6 +3,7 @@ package imagemake
 import (
 	"os"
 	"strings"
+	"time"
 )
 
 type directory struct {
@@ -14,8 +15,12 @@ type directory struct {
 type fileInfo struct {
 	FullPath         string
 	PermissionNumber os.FileMode
-	LastAccessTime   int
-	ContentChanged   bool
+	LastAccessTime   time.Time
+	Content          string
+}
+
+func basisDate() time.Time {
+	return time.Date(1995, time.May, 15, 0, 0, 0, 0, time.Local)
 }
 
 func insert(root *directory, FullPath string, f os.FileInfo) error {
@@ -31,9 +36,9 @@ func insert(root *directory, FullPath string, f os.FileInfo) error {
 		} else {
 			var newEntry = new(fileInfo)
 			newEntry.FullPath = FullPath
-			newEntry.ContentChanged = false
+			newEntry.Content = "$"
 			newEntry.PermissionNumber = f.Mode()
-			newEntry.LastAccessTime = 0
+			newEntry.LastAccessTime = basisDate()
 			root.Entries = append(root.Entries, newEntry)
 		}
 	} else {

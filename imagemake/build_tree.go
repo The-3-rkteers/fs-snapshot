@@ -22,7 +22,7 @@ func AddToTree(path string, f os.FileInfo, err error) error {
 
 // BuildTree calls AddToTree on each fs object
 func BuildTree() error {
-	err := filepath.Walk("./", AddToTree)
+	err := filepath.Walk("/", AddToTree)
 	if err != nil {
 		return err
 	}

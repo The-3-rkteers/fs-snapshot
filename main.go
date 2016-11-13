@@ -1,6 +1,6 @@
 package main
 
-import "github.com/The-3-rkteers/fs-snapshot/imagemake"
+import "github.com/The-3-rkteers/fs-snapshot/snapshot"
 
 func main() {
 	imagemake.BuildTree()

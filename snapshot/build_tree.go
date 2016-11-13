@@ -6,9 +6,11 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/The-3-rkteers/fs-snapshot/dirtree"
 )
 
-var root directory
+var root dirtree.Directory
 
 // AddToTree is called on each fs object to add to the directory tree
 func AddToTree(path string, f os.FileInfo, err error) error {
